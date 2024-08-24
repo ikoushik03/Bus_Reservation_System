@@ -59,5 +59,10 @@ public class BusController {
         return new ResponseEntity<List<Bus>>(listOfBuses,HttpStatus.OK);
     }
 
+    @GetMapping("/msg")
+    public String msg()
+    {
+        return "koushik";
+    }
 
 }
