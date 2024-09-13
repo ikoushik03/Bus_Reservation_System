@@ -52,7 +52,6 @@ public class Bus {
 
     private Integer farePerSeat;
 
-
     @Min(value = 1)
     @Max(value = 60)
 

@@ -17,29 +17,10 @@ public class BusController {
     @Autowired
     private BusService busService;
 
-    @PostMapping("/save")
-    public ResponseEntity<Bus> createBus(@RequestBody Bus bus) throws BusException {
-
-        return new ResponseEntity<Bus>(busService.addBus(bus), HttpStatus.CREATED);
-    }
-
     @GetMapping("/find/{busId}")
     public ResponseEntity<Bus> getBusById(@PathVariable int busId)throws BusException{
 
         return new ResponseEntity<Bus>(busService.viewBus(busId),HttpStatus.OK);
-    }
-
-
-    @PutMapping("/update")
-    public ResponseEntity<Bus> updateBusById(@RequestBody Bus bus)throws BusException {
-
-        return new ResponseEntity<Bus>(busService.updateBus(bus),HttpStatus.OK);
-    }
-
-    @DeleteMapping("/delete/{busId}")
-    public ResponseEntity<Bus> deleteRouteById(@PathVariable int busId)throws BusException {
-
-        return new ResponseEntity<Bus>(busService.deleteBus(busId),HttpStatus.OK);
     }
 
     @GetMapping("/buses/{busType}")
@@ -59,10 +40,6 @@ public class BusController {
         return new ResponseEntity<List<Bus>>(listOfBuses,HttpStatus.OK);
     }
 
-    @GetMapping("/msg")
-    public String msg()
-    {
-        return "koushik";
-    }
+
 
 }

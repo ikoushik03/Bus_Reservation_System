@@ -17,15 +17,6 @@ public class RouteController {
     @Autowired
     private RouteService routeService;
 
-
-    @PostMapping("/save")
-    public ResponseEntity<Route> createRoute(@RequestBody Route route) throws RouteException {
-
-        Route rou = routeService.addRoute(route);
-
-        return new ResponseEntity<>(rou, HttpStatus.CREATED);
-    }
-
     @GetMapping("/viewAll")
     public ResponseEntity<List<Route>> getAllRoutes()throws RouteException {
 
@@ -39,19 +30,6 @@ public class RouteController {
         Route route = routeService.viewRoute(routeId);
 
         return new ResponseEntity<Route>(route,HttpStatus.OK);
-    }
-
-
-    @PutMapping("/update")
-    public ResponseEntity<Route> updateRouteById( @RequestBody Route route)throws RouteException {
-
-        return new ResponseEntity<Route>(routeService.updateRoute(route),HttpStatus.OK);
-    }
-
-    @DeleteMapping("/delete/{routeId}")
-    public ResponseEntity<Route> deleteRouteById(@PathVariable int routeId)throws RouteException {
-
-        return new ResponseEntity<Route>(routeService.deleteRoute(routeId),HttpStatus.OK);
     }
 
 
